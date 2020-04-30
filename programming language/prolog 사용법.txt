@@ -1,0 +1,25 @@
+SWI-Prolog를 실행시키면 밑도끝도없이 
+?- 가 튀어나온다.
+뭘 써도 제대로 나오는게 없다(당연히 설정해놓은게 없으니까.)
+제대로 작동하게 하기 위해서
+
+File - New를 눌러준다.
+그렇게 하고 relation이라는 relation.pl 파일을 만들어준다.
+
+만약 
+father(a, b).
+father(b, c).
+
+grandfather(X, Z) :-
+	father(X, Y), father(Y, Z).
+
+라고 하고 저장을 해준 후에 이 창을 닫는다.
+
+그리고 원래의 실행창으로 들어가서(?-가 뜬 곳)
+consult를 해주고 아까 만들어준 relation.pl을 선택하면 컴파일이 진행되며 해당 규칙이 적용된다.
+
+?- grandfather(a, c).
+라고 쳐주면
+true가 나온다.
+
+relation.pl을 편집하려고 하면 File-Edit를 누르고 relation.pl을 찾아서 열어 다시 수정하면 된다.
