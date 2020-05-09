@@ -1,0 +1,20 @@
+shift 마우스 오른쪽 클릭을 하면 명령 창을 그 폴더에서 명령창을 열 수 있다
+bin폴더로 들어간 후에 shift 마우스 오른쪽클릭을 해서
+들어간 후에 ./startup.bat을 하면 
+서버가 실행이 된다.
+
+서버를 종료하고자 할때는 ./shutdown.bat을 하면 된다고 하는데 안되서
+netstat -ano | findstr 80 를 통해서 서버에 해당하는 8080포트를 찾고,
+그 포트에 해당하는 번호를 찾고 (나의 경우는 20644.)
+taskkill /f /pid 20644를 실행하면 
+서버에 접속이 끊긴다.
+
+tomcat과 eclipse ee연결하면 다시 서버를 종료하고 실행해야 된다.
+그러면 
+오류: 기본 클래스 org.apache.catalina.startup.Bootstrap을(를) 찾거나 로드할 수 없습니다.
+원인: java.lang.ClassNotFoundException: org.apache.catalina.startup.Bootstrap
+이를 해결해주고
+
+javatest가 뭐지. 이후에 설정할 클래스 이름.
+
+jsp이름은 jsptest로 만들었고. 이용해서 JSP 예제 수행.

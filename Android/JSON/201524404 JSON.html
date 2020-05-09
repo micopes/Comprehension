@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON Test</h2>
+
+<p id = "demo0"></p>
+<p id = "demo1"></p>
+<p id = "demo2"></p>
+<p id = "demo3"></p>
+
+<script>
+var text = '{"employees":['+
+'{"firstName":"Tim", "lastName":"Berners-Lee", "info":"inventor of the World Wide Web"},'+
+'{"firstName":"Richard", "lastName":"Stallman", "info":"He launched the GNU Project"},' +
+'{"firstName":"Linus","lastName":"Tovalds", "info":"The Creator of the Linus Kernel"},' +
+'{"firstName":"민진","lastName":"강", "info":"Computer Enginerring junior, number : 201524404"}]}';
+
+obj = JSON.parse(text);
+
+document.getElementById("demo0").innerHTML =
+	obj.employees[0].firstName + " " +
+	obj.employees[0].lastName + " : " +
+	obj.employees[0].info;
+
+document.getElementById("demo1").innerHTML =
+	obj.employees[1].firstName + " " +
+	obj.employees[1].lastName + " : " +
+	obj.employees[1].info;
+
+document.getElementById("demo2").innerHTML =
+	obj.employees[2].firstName + " " +
+	obj.employees[2].lastName + " : " +
+	obj.employees[2].info;
+
+document.getElementById("demo3").innerHTML =
+	obj.employees[3].firstName + " " +
+	obj.employees[3].lastName + " : " +
+	obj.employees[3].info;
+
+</script>
+</body>
+</html>
