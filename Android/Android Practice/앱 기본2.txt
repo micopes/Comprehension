@@ -1,0 +1,54 @@
+앱 기초 2
+Scrollview
+스크롤바 구현 - 계산해서 위치시킴.
+ScrollView안에 넣으면 된다.(Layout안에)
+그러면 자동으로 Scroll 이 필요로 하면 스크롤 생성.
+
+background 로 색상 설정 가능.
+
+
+text에 그냥 "안녕하세요" 바로 써도 되지만
+res > values > strings.xml에서 string을 만들어주는 것이 더 좋다.
+
+<string name="myname">마이크</string> // 1)
+text에 @string/myname를 넣으면 마이크를 가져올 수 있다. // 2)
+
+2)의 방법으로 하면 다른 곳에서도 이렇게 참조해서 사용할 수 있고,
+다국어를 사용할 수 있다.(단말이 영어로 설정되어 있으면 그것에 맞는 파일을 가져올 수 있고, 한국어로 설정되어 있으면 그것에 맞는 파일을 가져올 수 있다.
+
+Text > Plain Text inputType에서 설정 가능
+password : 보이지 않게 text
+
+imageview 변경 : srcCompat
+scaleType에서 안의 내용 조정 가능
+
+button를 image로 채웠을때
+button 이 클릭되었을때 모양바뀌는 것이 없어짐.
+
+drawble -> 오른쪽 클릭 -> new -> drawble resource file 들어가서
+camping_drawble.xml 로 파일을 만들게 되면
+
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+</selector>
+이런 소스가 뜨게 된다.
+
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"
+        android:drawble="@drawble/camping_pressed"/> // 눌린 상태 표현.
+</selector>
+위의 것은
+새로운 drawable을 만들어서.
+그 drawable이 눌러졌을때, 안눌러졌을때를 다 표시하는 drawble을 만들 수 있다.
+!!!주의) drawble이 아니라 drawable이다.
+
+drawable중에 가장 많이 사용하는 것은 상태 drawable (state drawable)
+
+resource drawable 로 새로운 drawable 생성하고
+selecter -> shape
+직접 모양을 만드는 것.
+preview 볼 수 있다.
+
+selecter -> layer-list

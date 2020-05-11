@@ -1,0 +1,50 @@
+눈에보이는 것 : view
+-> 
+/>로 끝남.
+눈에 보이지 않으면서 view를 포함하는 것(layout = view..)
+<Layout>
+
+</Layout>으로 끝남
+
+들어간 내용에 따라 자동으로 크기를 맞춰주는 것 : wrap_content
+
+LinearLayout으로 바꿀 수 있다. -> match_parent 사용 가능.
+convert layout을 통해서 바꿀 수 있다.
+
+끝에 원형으로 된 연결선이만들어지지않으면 어디에있어야하는지모른다.(흰색이면 만들어지지않은것)
+파란색으로 채워져야 어디에 있어야 하는지가 결정된 것이다.
+
+가이드선을 만들어서 거기에 붙일 수 있다.
+
+layout의 wrap_content 도 있다
+뷰의 wrap_content도 있따
+
+dp는 단말기들의 공통된 단위
+
+텍스트부터 뷰의 테두리까지는 패딩(padding)
+뷰의 테두리부터 레이아웃까지는 마진(margin)
+
+- LinearLayout
+horizontal : 가로로 쌓기.
+vertical : 세로로 쌓기
+위의 것을 설정해줘야 한다.
+
+layout_gravity : 정렬 (뷰의 정렬)
+gravity : 뷰의 안의 내용물에 대한 정렬
+
+baseline_aligned : 같은 위치상에 있을때 글자의 위치를 맞춰주는 것.
+-> default 가 true. 설정 따로 안하면 자동으로 맞춰져있음 
+
+layout_가 붙으면 layout 과 view 관련.
+안붙으면 view와 그 안의 text관련
+
+weight는 비율을 말하는 것.
+layout_weight는 각 레이아웃의 비율을 뜻함.
+
+- RelativeLayout
+
+layout_above
+layout_below 로 상대적인 위치 조정.
+
+- FrameLayout
+app > res > drawable (이미지 파일 여기에 일반적으로 들어가게 된다.)

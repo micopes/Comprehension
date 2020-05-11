@@ -1,0 +1,37 @@
+view 3개.
+
+키 눌림, 스크롤, 속도, 좌표 
+그에 대한 동작 출력 가능
+
+화면 구분(색상)
+
+layout-land 폴더 만들어서 activity_main
+방향에 따라 화면출력을 다르게 해줌
+
+onDestroy : 화면이 없어졌을때.
+실제로는 화면이 없어지고 생기고 이렇게 해서 가로 -> 세로, 세로 -> 가로 로 작동하는 것.
+
+-> 화면이 전환될때 없어지는데 이를 저장하는 방법
+savedInstanceState에 저장해두고.
+onCreate되면 saveInstanceState 에 있는 정보가 전달이 됨.
+없어질때는 saveInstanceState에 저장을 하면 된다.
+
+Part02 chapter03 11
+- activity가 방향이 바뀌더라도 유지될 수 있는 방법?
+onConfigurationChanged
+landscape
+
+chapter 3-12
+toast
+- 뭐가 뜨는거
+snackbar
+대화상자 네 아니오 -> 
+
+chapter 3-13
+progressbar 는 progress bar라는 id
+button은 button이라는 id.
+각각 다르게 설정할 수 있다.
+
+progressbar : 진행상황 바로 표현
+
+
