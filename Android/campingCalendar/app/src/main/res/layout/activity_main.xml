@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context="com.example.campingcalendar.MainActivity">
+
+    <Button
+        android:id="@+id/btnGoCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Go to Calendar" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/btnGoCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint ="Date"
+        android:id="@+id/date"/>
+
+</RelativeLayout>
