@@ -1,0 +1,87 @@
+우분투에서는 apt <- 패키지 관리자를 이용하여 설치.
+
+git 설치.
+설치 완료하면
+git 설정
+전역 설정
+$ git config --global user.name "John Doe(yourName)"
+$ git config --global user.email johndoe@example.com(yourEmail)
+-> 수정하려면 이 작업을 다시 해주면 된다.
+
+$ git config --list  -> 설정된 리스트를 나타내줌.
+
+Git의 진행과정
+1. Working Directory(Repo, git저장소)
+2. Staging Area
+3. Local Repo
+
+$ mkdir hello-git -> hello-git이라는 디렉토리 생성 
+dir 로 확인 가능. -> ls같은 역할을 하는 듯.
+$ cd hello-git -> hello-git으로 디렉토리 변경
+$ git init -> 현재 디렉토리 초기화. 
+
+init 명령은 .git이라는 하위 디렉토리를 생성.
+.git 디렉토리에는 '관리'에 필요한 파일을 보관.
+
+$ git status
+-> 
+On branch master
+
+ No commits yet
+
+nothing to commit .... 이 나옴.
+
+
+Git file life cycle : 결국에는 Staged 로 가고자 함.
+Untracked - Unmodified - Modified - Staged
+
+Untracked은 아직 git에서 관리하지 않은 파일.
+
+$ echo 'Hello Git Project' > README.md
+$ type README.md -> 내용 나옴.
+$ git status -> README.md 가 Untracked 이라는 것을 알려줌. .git이 이를 파악하고 있는 것.
+$ git add README.md -> 해주면 Untracked -> Staged
+$ git status -> 확인 가능.
+changes to be committed 에 들어있는 파일은 Staged라는 것을 알려줌.
+
+$ echo 'Hello Git Project!' > README.md 
+이런 식으로 변경된 것을 추가해 줬다.
+Changes not staged for commit 이라고 뜨는데 이것은 modified 상태.
+이것을 다시 Staged 상태로 만들려면 git add README.md 해주면 된다.
+
+요약 :
+처음 생성해서 Untracked 에서 Staged로 만들어주고,
+Staged 상태에서 변경되면 modified 로 가는데.
+이를 다시 Staged 로 변경시켜줘야 한다.
+
+$ git status -s 라고 -s를 추가해주면 된다. 
+A : 추가된 것.
+?? : 아직 잘 모르겠는 것.
+AM : 추가되었는데 추후에 변경된 것.
+
+$ git diff로 하면 변경된 사항을 알 수 있다. -> 추가한 것에 대해서만 관리를 한다.
+$ git add로 변경된 것에 대해서 넣어주면 변경사항이 없어짐.
+
+$ git commit 하면 vi 창이 뜬다.
+$ git commit -m "init" 하면 2개 변경되었다고 생성되었다고 뜸.
+
+요약 :
+git init -> 관리할 수 있는 .git생성.
+파일을 생성하면 -> untracked 상태.
+git add -> Staged 사앹. 
+여기서 수정하면 -> modified 로 들어간다.
+git commit -> Unmodified 로 간다.
+
+$ git log 를 통해서 했던 작업들을 확인할 수 있다.
+
+요약 : 
+1. 저장소를 설정해야 함. $ git init
+2. main.c 생성 -> untracked
+2. $ git add -> staged
+3. 수정하면 main.c -> modified
+4. git add main.c를 다시 하면 -> staged
+5. git commit -m "---" -> unmodified 하면서 반영되는 것.
+
+
+
+
