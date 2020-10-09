@@ -1,0 +1,88 @@
+Merge
+1. 운영중인 저장소가 있음
+2. 새로운 문제가 발생하여 해당 문제를 해결해야 함.
+3. 문제 해결을 위한 별도의 branch 생성
+4. 문제 해결 후 병합(merge)
+
+그런데...
+1. 잘 되던 서비스가 갑자기 멈춤
+2. 일단 서비스를 운영하기 위해서 Hotfix를 하기로 결정
+3. 수정한 Hotfix를 운영중인 저장소에 반영
+4. 하던 일 계속.
+
+$ git checkout -b iss53 이렇게 하면 checkout을 하면서 동시에 branch를 만들어 줄 수 있다.
+
+hotfix
+$ git checkout master
+$ git checkout -b hotfix
+$ echo "<div>Git! Hello!</div>
+
+1) master <- hotfix(O)
+2) hotfix <- master(X) -> 왜냐면 새로운 것에 오래된 것을 병합시키므로 오래된 것 2개가 된다.
+
+1)의 방법으로 제대로 하기 위해서는 
+$ git checkout master 를 이용해서 master로 이동을 해준 후에
+$ git merge hotfix 를 이용해서 병합을 해줘야 한다. 이게 master <- hotfix
+
+master -> hotfix -> C4 이렇게 가리키게 된다.
+이러면 hotfix는 더이상 쓸모 없어지게 되는데 쓸모없어진(작업이 끝난) branch는 삭제를 해주면 된다.
+$ git branch -d hotfix
+
+$ git branch -> master에 있다는 것을 확인해준 후에
+$ git merge iss53 -> CONFLICT가 발생한다.
+
+master -> C4 -> C2
+iss53 -> C5 -> C3 -> C2
+이러면 뭐가 최신인지를 모르기 때문에. 병합 시에 conflict가 발생한다.
+
+master가 hotfix 를 병합하면
+master -> hotfix -> C4 이런 식으로 된다.
+
+github에서 new repository 생성.
+hello-git-github 만들었다.
+만들면
+
+echo "# hello-git-github" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/minjcop/hello-git-github.git
+git push -u origin master
+이 나타남.
+
+$ git remote add origin https://github.com/minjcop/hello-git-github.git
+를 터미널 창에 치고
+$ git remote 치면
+origin 이 나온다.
+$ git push -u origin master
+
+이러면 github에 master안에 들어있는 파일들이 올라가는 것을 확인할 수 있다.
+push는 올려보내는 것.
+
+branch는 어떤 문제를 해결하기 위해서 독립된 공간을 만드는 것.
+
+fork 에서 clone URL을 받으면 fork 에서 상태에 대해서 나타남과 동시에 PC에도 다운로드 받아진다.
+fork의 branches에서 마우스오른쪽버튼누르고 branch를 새로 생성하면 된다.
+github의 repository에서 보면 issues가 있다.
+
+새로운 branch만들어서
+README.md -> Staged 로 add -> Push -> Commit
+github 저장소 페이지(홈페이지)의 pull request로 가서 new pull request 
+base : master <- add-readme
+
+new pullrequest만들어서. 뭐 적어주고
+merge 하면 되는데 옆에 reviewer 에 만들어주면 된다.
+옆에 Assignees, Labels 등등 추가해주면 좋다.
+그러고 Review남기고 수정하고 등등의 과정을 거치고,
+merge -> confirm하면 된다.
+그리고 작업이 끝난 branch는 delete해줘야 한다.
+
+이러한 일련의 과정을 거치면 Code (메인창에) 나오게 된다.
+
+issue가 끝나면 issue는 닫으면 된다.
+
+변경사항은 fork상에서는 나타나지 않는다. 이러한 변경사항을 가져오기 위해서는 fetch를 해주면 된다.
+그러면 최근의 것을 받아올 수 있다.
+
+이러한 것을 계속 반복하면 좋은 것이 완성될 수 있다.

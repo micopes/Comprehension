@@ -1,0 +1,85 @@
+정리
+- Git은 모든 명령을 로컬에서 진행.
+- Git은 데이터를 추가할뿐 삭제나 변경하지 않음.
+Staged -> Commit해야 함.
+- Git은 모든 변화를 파일의 스냅샷(전체 복사)으로 취급.
+
+Github : 기술이 아니라 *개발 문화*
+
+VCS 를 사용하는 이유
+- VCS를 사용하여 '코드'를 관리하는 것은 소프트웨어의 '변경'을 제어하기 위한 것.
+1인 개발을 할 경우 소프트웨어 '변경'을 관리하는 것은 어렵지 않음.
+- TDD (Test 주도 개발)
+- Docs as Code (코드 문서화) 좋은 품질의 코드는 사람이 읽기 좋은 코드.
+
+거의 대부분의 소프트웨어 개발은 '팀'단위 기술을 필요로 함.
+
+팀에 필요한 기술은 생각보다 훨씬 중요하다.
+팀 단위 개발의 어려움?
+- 동일한 함수/메서드 동시에 수정하는 행위
+- 변수/함수/메서드/클래스명 중첩 (생각보다 자주 일어남.)
+- 이 버그는 니가 만든거야? <-> 내가 만들었지만 나의 잘못은 아니다.(업데이트 등으로 인한 문제) - 감정이 상함.
+
+해결 방법.
+Manage Issue / Review Code
+- 모든 팀은 '코드' 관리하는게 아니라 'Issue'를 관리해야 함.
+ Jira, Trello, RedMine 등의 소프트웨어로 Issue 관리 가능.
+- 모든 '코드'는 동료가 읽을 수 있어야 하기 때문에 동료평가가 필요하다.
+ Gerrit, Crucible
+
+Issue와 Review의 용도로 Github을 사용
+동일한 '저장소'의 코드 여러 명이 수정할 텐데? 이건 어떻게 해결?
+- Branch로 이를 해결함.(단일 저장소에서 작업을 할때 충돌을 덜하게 만들기 위한 것.)
+
+연습은 Terminal 에서 하되 까다롭기 때문에 GUI프로그램을 이용할 것.
+
+현재 commit 한 것 외에는 보이지 않지만, 
+스냅샷을 하면 전체가 다 보이게 된다.
+git 은 snapshot이라는 것으로 관리할 수 있다. 이유야 어쨌든 git은 모든 변화과정을 가지고 있다.
+
+$ git branch 하면 
+* master 가 나온다.
+ 
+$ git branch testing 
+$ git branch 하면 
+  *master
+  testing
+  각각이 존재하게 된다.
+  
+commit 하나는 각각의 snapshot을 다 갖고 있다. 
+원래는 master로 계속 작업을 해줬는데 testing 이라는 것을 생성해준 것.
+그래서 master -> testing 을 가리키게 되는 것이다.
+
+checkout 이라는 명령어를 이용해서 공간을 이동해줘야 한다.
+
+HEAD라는 특수한 포인터
+git 은 linked list 형식으로 구성되어 있다고 이해를 하면 된다.
+branch 를 이용해서 1) 확인, 2) 생성
+checkout을 이용해서 1) HEAD 이동, 2) 스냅샷 복사
+
+$ echo "!" > test.md
+$ git add test.md
+$ git commit -m "made a change"
+하면 원하는 대로 추가가 된다.
+이렇게 하게 되면 > 
+master에는 test.md가 없는데,
+testing에는 test.md와 원래 master에 있던 모든 것이 있게 된다.
+
+이러면 master에 연결이 되지 않은 testing 에 연결이 된 것이 등록이 되게 된다.
+$ git checkout master
+
+이걸 제대로 파악해야 협업에 문제가 없다.
+
+이렇게 스냅샷이 늘어나면 무슨 장점이 있는가? -> 어떤 문제가 발생했을 때에 기존의 상태로 돌아갈 수 있다.(컴파일 되거나 오류가 없는 곳으로)
+이것이 VCS를 쓰는 주된 이유.
+
+$ git log --oneline --decorate --graph -all
+이렇게 하면 전체적인 log와 head를 볼 수 있다.
+
+
+
+
+
+
+
+
