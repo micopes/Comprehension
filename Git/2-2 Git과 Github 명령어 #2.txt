@@ -27,3 +27,12 @@ Fork를 설치해서 사용한다.
 
 저장소를 clone 하든 새로 만들든 만들고
 open in 을 이용해서 작업
+변경작업을 수행하고 Staged로 보낸다.
+그런다음에 commit하면 master이 나오고, master로 들어가면 된 것.
+console창에서 이를 수행하는 것을 원치 않아서 이러는 것.
+컴퓨터공학을 배운 사람이 저렇게 원시적으로 수행하면 안되지.
+
+VCS(Version Control System) 중의 하나가 Git.
+이를 IDE에서 Enable VCS -> Git을 선택하면 현재 관리중인 것으로 만들 수 있다.
+그래도 생각보다 불편하기 때문에 Fork 를 사용하는 것이 편하다.
+Tower가 제일 좋다고함.
