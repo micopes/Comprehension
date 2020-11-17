@@ -1,0 +1,14 @@
+udp.port==7500 || tcp.port==7500 으로 wireshark에서 검색
+
+1. Debug 폴더에서 cmd로 실행파일 실행
+2. prompt udp client $G, prompt udp server $G
+로 실행가능
+
+컴파일하고,
+dir *.exe 후,
+
+server에서 datagramserver 7500 100 이런 식으로,
+-> client에서 datagramclient 127.0.0.1 7500 100
+
+opt_val = TRUE면 enable
+opt_val = FALSE면 disable
